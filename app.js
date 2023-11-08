@@ -10,14 +10,14 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 // connect db
-mongoClient
-  .connect("mongodb://127.0.0.1:27017/T-shirtStore")
-  .then(() => {
-    console.log("🛌Connected successfully");
-  })
-  .catch((error) => {
-    console.error(`🧘‍♂️Connect database is failed: ${error} `);
-  });
+// mongoClient
+//   .connect("mongodb://127.0.0.1:27017/T-shirtStore")
+//   .then(() => {
+//     console.log("🛌Connected successfully");
+//   })
+//   .catch((error) => {
+//     console.error(`🧘‍♂️Connect database is failed: ${error} `);
+//   });
 //initialize router
 const CustomerRouter = require("./app/routes/Customer.route");
 const AccountRouter = require("./app/routes/Account.route");
