@@ -3,27 +3,23 @@ const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
 const createError = require("http-errors");
-const mongoClient = require("mongoose");
 // initialize
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
-// connect db
-// mongoClient
-//   .connect("mongodb://127.0.0.1:27017/T-shirtStore")
-//   .then(() => {
-//     console.log("🛌Connected successfully");
-//   })
-//   .catch((error) => {
-//     console.error(`🧘‍♂️Connect database is failed: ${error} `);
-//   });
 //initialize router
 const CustomerRouter = require("./app/routes/Customer.route");
 const AccountRouter = require("./app/routes/Account.route");
+const ProductRouter = require("./app/routes/Product.route");
+const CartRouter = require("./app/routes/Cart.route");
+const RoleRouter = require("./app/routes/Role.route");
 //use router
 app.use("/api/Customers", CustomerRouter);
 app.use("/api/Accounts", AccountRouter);
+app.use("/api/Products", ProductRouter);
+app.use("/api/Carts", CartRouter);
+app.use("/api/Roles", RoleRouter);
 //simple route
 app.get("/", (req, res) => {
   res.json({ messase: "Welcome to T-Shirt Store" });

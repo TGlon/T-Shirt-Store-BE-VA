@@ -15,6 +15,11 @@ const AccountSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Customer',
         required: true
+    },
+    roleId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Role',
+        required: true
     }
 });
 

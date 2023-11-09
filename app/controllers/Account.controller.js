@@ -16,6 +16,10 @@ const findAll = async (req, res, next) => {
         path: 'customerId', // Trường trong mô hình "Account" chứa ObjectId tham chiếu đến khách hàng
         model: 'Customer', // Tên mô hình "Customer" 
       })
+      .populate({
+        path: 'roleId', 
+        model: 'Role', 
+      })
       .exec();
 
     return res.status(200).json({ message: "Danh sách tài khoản với thông tin khách hàng", accounts });
@@ -35,6 +39,10 @@ const findOne = async (req, res, next) => {
       .populate({
         path: 'customerId', // Trường trong mô hình "Account" chứa ObjectId tham chiếu đến khách hàng
         model: 'Customer', // Tên mô hình "Customer" 
+      })
+      .populate({
+        path: 'roleId', 
+        model: 'Role', 
       })
 
     if (!account) {
